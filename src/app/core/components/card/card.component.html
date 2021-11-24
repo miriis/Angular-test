@@ -1,0 +1,6 @@
+<div class="container d-flex flex-column" *ngFor="let product of products">
+  <img [src]="product.img">
+  <h1>{{product.title}}</h1>
+  <p class="mb-1">{{product.price | currency: "EUR"}}</p>
+  <button class="mx-auto me-2" (click)="showDetails.emit(product)">Show Details</button>
+</div>

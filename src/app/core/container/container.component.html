@@ -1,0 +1,16 @@
+<div class="container-home d-flex justify-content-between">
+<app-list [products]="products" (productDetails)="showDetails($event)"></app-list>
+  <div class="container-splash text-center d-flex align-self-center py-4" *ngIf="hide; else details">
+    <div>
+      <h2>Benvenuti nello shop di</h2>
+      <img src="https://www.develhope.co/_nuxt/img/cav_black.9dc2b13.svg" width=700px height=150px>
+      <h3>Clicca sui dettagli del prodotto per visualizzare tutte le informazioni</h3>
+    </div>
+  </div>
+
+<ng-template #details>
+  <app-details [product]="product" (closeDetails)="closeDetails($event)" (addToCart)="addToCart($event)"></app-details>
+</ng-template>
+
+<div class="bg-primary align-items-start w-10 h-25 p-2 mx-4 text-white rounded">Carrello ({{ cart.length }})</div>
+</div>
